@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const db = require('./database')
 const rootRoute = require('./routes')
 require('dotenv').config()
 
@@ -10,6 +11,7 @@ app.use(cors())
 
 app.get('/', rootRoute)
 
-app.listen(port, () => {
+app.listen(port, async () => {
+  await db.connect()
   console.log(`Server running on port ${port}`)
 })
