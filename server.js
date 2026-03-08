@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, no-console */
+
 const express = require('express')
 const cors = require('cors')
 const db = require('./database')
@@ -14,8 +16,18 @@ app.use(cors())
 app.get('/', rootRoute)
 app.use('/contacts', contactRoute)
 
-app.listen(port, async () => {
-  await db.connect()
-  //eslint-disable-next-line no-console
-  console.log(`Server running on port ${port}`)
-})
+const startServer = async () => {
+  try {
+    await db.connect()
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`)
+    })
+  } catch (_) {
+    console.error(
+      'Failed to connect to the database. Application is shutting down.'
+    )
+    process.exit(1)
+  }
+}
+
+startServer()

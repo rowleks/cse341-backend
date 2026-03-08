@@ -35,7 +35,6 @@ export default [
       'require-await': 'error',
       'arrow-body-style': ['error', 'as-needed'],
       'no-console': 'warn',
-      'no-process-exit': 'error',
       'no-path-concat': 'error',
       'handle-callback-err': 'warn',
       'object-shorthand': ['warn', 'always'],
