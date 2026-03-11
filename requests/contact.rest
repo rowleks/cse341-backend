@@ -3,3 +3,28 @@ GET http://localhost:3030/contacts
 
 ### Get single contact by ID
 GET http://localhost:3030/contacts/69a592ab1ea6b0781c1e262a
+
+### Create a new contact
+POST http://localhost:3030/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Yakubu",
+  "lastName": "Manage",
+  "email": "yakubu.manage@gmail.com",
+  "favoriteColor": "Red",
+  "birthday": "1990-01-01"
+}
+
+### Update an existing contact
+PUT http://localhost:3030/contacts/69b1eaefbbdb29365e267fe1
+Content-Type: application/json
+
+{
+  "firstName": "Rowland",
+  "lastName": "Momoh",
+  "email": "rmomoh@byupathway.edu"
+}
+
+### Delete a contact
+DELETE http://localhost:3030/contacts/69b1eaefbbdb29365e267fe1
