@@ -14,7 +14,7 @@ const port = process.env.PORT || 3030
 app.use(cors())
 app.use(express.json())
 
-app.get('/', rootRoute)
+app.use('/', rootRoute)
 app.use('/contacts', contactRoute)
 
 const startServer = async () => {

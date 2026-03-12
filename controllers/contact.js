@@ -1,6 +1,8 @@
 const Contact = require('../model/contact')
 
 const getAllContacts = async (_, res) => {
+  /*#swagger.tags = ['contacts']  */
+
   try {
     const contacts = await Contact.find()
     res.json(contacts)
@@ -10,6 +12,8 @@ const getAllContacts = async (_, res) => {
 }
 
 const getContactById = async (req, res) => {
+  /*#swagger.tags = ['contacts']  */
+
   try {
     const contact = await Contact.findById(req.params.id)
     if (!contact) return res.status(404).json({ message: 'Contact not found' })
@@ -20,6 +24,8 @@ const getContactById = async (req, res) => {
 }
 
 const createContact = async (req, res) => {
+  /*#swagger.tags = ['contacts']  */
+
   try {
     const contact = new Contact(req.body)
     await contact.save()
@@ -30,6 +36,8 @@ const createContact = async (req, res) => {
 }
 
 const updateContact = async (req, res) => {
+  /*#swagger.tags = ['contacts']  */
+
   try {
     const contact = await Contact.findByIdAndUpdate(req.params.id, req.body, {
       returnDocument: 'after',
@@ -42,6 +50,8 @@ const updateContact = async (req, res) => {
 }
 
 const deleteContact = async (req, res) => {
+  /*#swagger.tags = ['contacts']  */
+
   try {
     const contact = await Contact.findByIdAndDelete(req.params.id)
     if (!contact) return res.status(404).json({ message: 'Contact not found' })
