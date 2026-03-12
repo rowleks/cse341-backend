@@ -7,6 +7,22 @@ const doc = {
   },
   host: 'cse341-backend-jnnf.onrender.com',
   schemes: ['https'],
+  definitions: {
+    CreateContactPayload: {
+      $firstName: 'John',
+      $lastName: 'Doe',
+      $email: 'john.doe@example.com',
+      $favoriteColor: 'Blue',
+      $birthday: '1990/01/01',
+    },
+    UpdateContactPayload: {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john.doe@example.com',
+      favoriteColor: 'Blue',
+      birthday: '1990/01/01',
+    },
+  },
 }
 
 const outputFile = './docs/swagger-output.json'

@@ -24,7 +24,14 @@ const getContactById = async (req, res) => {
 }
 
 const createContact = async (req, res) => {
-  /*#swagger.tags = ['contacts']  */
+  /*
+  #swagger.tags = ['contacts']  
+  #swagger.parameters['body'] = {
+            in: 'body',
+            description: 'Add a new contact.',
+            schema: { $ref: '#/definitions/CreateContactPayload' }
+    } 
+  */
 
   try {
     const contact = new Contact(req.body)
@@ -36,7 +43,13 @@ const createContact = async (req, res) => {
 }
 
 const updateContact = async (req, res) => {
-  /*#swagger.tags = ['contacts']  */
+  /*
+  #swagger.tags = ['contacts']
+  #swagger.parameters['body'] = {
+            in: 'body',
+            description: 'Update contact information.',
+            schema: { $ref: '#/definitions/UpdateContactPayload' }
+    } */
 
   try {
     const contact = await Contact.findByIdAndUpdate(req.params.id, req.body, {
